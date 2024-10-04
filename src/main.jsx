@@ -35,6 +35,7 @@ import PaymentGatewaySettings from "./pages/settings/PaymentGatewaySettings";
 import BrandingSettings from "./pages/settings/BrandingSettings";
 import Permissions from "./pages/settings/Permissions";
 
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
