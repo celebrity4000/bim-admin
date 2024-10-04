@@ -89,17 +89,17 @@ const sidebarData = [
       },
       {
         name: "Batch Management",
-        navigate: "/batches",
+        navigate: "/batchesManagement",
         icon: <MdWifiCalling3 size={25} />,
       },
       {
         name: "Assignments & Assessments",
-        navigate: "/certifications",
+        navigate: "/assignmentsAndAssesments",
         icon: <MdAssignmentAdd size={25} />,
       },
       {
         name: "Feedback Collection",
-        navigate: "/certifications",
+        navigate: "/feedbackCollection",
         icon: <MdFeedback size={25} />,
       },
     ],
@@ -112,32 +112,32 @@ const sidebarData = [
     items: [
       {
         name: "Batch Performance",
-        navigate: "/sales",
+        navigate: "/batchPerformance",
         icon: <GrDocumentPerformance size={25} />,
       },
       {
         name: "Trainee Progress",
-        navigate: "/course",
+        navigate: "/traineeProgress",
         icon: <FaBarsProgress size={25} />,
       },
       {
         name: "Certification Tracking",
-        navigate: "/user",
+        navigate: "/certificationTracking",
         icon: <GrCertificate size={25} />,
       },
       {
         name: "Revenue Analytics",
-        navigate: "/performance",
+        navigate: "/revenueAnalytics",
         icon: <FaMoneyCheckDollar size={25} />,
       },
       {
         name: "Lead Conversion",
-        navigate: "/performance",
+        navigate: "/leadConversion",
         icon: <TbReportAnalytics size={25} />,
       },
       {
         name: "Placement Analytics",
-        navigate: "/performance",
+        navigate: "/placementAnalytics",
         icon: <IoMdAnalytics size={25} />,
       },
     ],
@@ -155,22 +155,22 @@ const sidebarData = [
       },
       {
         name: "Email Settings",
-        navigate: "/profileSettings",
+        navigate: "/emailSettings",
         icon: <MdOutlineMailOutline size={25} />,
       },
       {
         name: "Payment Gateway Settings",
-        navigate: "/profileSettings",
+        navigate: "/paymentGatewaySettings",
         icon: <MdOutlinePayment size={25} />,
       },
       {
         name: "Branding Customisation Settings",
-        navigate: "/profileSettings",
+        navigate: "/brandingCustomisationSettings",
         icon: <MdOutlineBrandingWatermark size={25} />,
       },
       {
         name: "Permissions",
-        navigate: "/user",
+        navigate: "/permissions",
         icon: <MdOutlineSettings size={25} />,
       },
     ],

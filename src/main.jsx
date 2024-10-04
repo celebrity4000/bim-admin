@@ -20,6 +20,20 @@ import UpcomingSeasons from "./pages/UpcomingSeasons";
 import Trainee from "./pages/userManagement/Trainees";
 import TrainerManagement from "./pages/userManagement/Trainers";
 import HelpDesk from "./pages/helpAndSupport/HelpDesk";
+import BatchManagement from "./pages/courseManagement/BatchManagement";
+import AssignmentsAndAssesments from "./pages/courseManagement/AssignmentsAndAssesments";
+import FeedbackCollection from "./pages/courseManagement/FeedbackCollection";
+import BatchPerformance from "./pages/reportAnalytics/BatchPerformance";
+import TraineeProgress from "./pages/reportAnalytics/TraineeProgress";
+import CertificationTracking from "./pages/reportAnalytics/CertificationTracking";
+import RevenueAnalytics from "./pages/reportAnalytics/RevenueAnalytics";
+import LeadConversion from "./pages/reportAnalytics/LeadConversion";
+import PlacementAnalytics from "./pages/reportAnalytics/PlacementAnalytics";
+import ProfileSetting from "./pages/settings/ProfileSetting";
+import EmailSetting from "./pages/settings/EmailSetting";
+import PaymentGatewaySettings from "./pages/settings/PaymentGatewaySettings";
+import BrandingSettings from "./pages/settings/BrandingSettings";
+import Permissions from "./pages/settings/Permissions";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -38,6 +52,33 @@ const router = createBrowserRouter(
 
       <Route path="/courseCatelog" element={<Courses />} />
       <Route path="/helpDesk" element={<HelpDesk />} />
+
+      <Route path="/batchesManagement" element={<BatchManagement />} />
+      <Route
+        path="/assignmentsAndAssesments"
+        element={<AssignmentsAndAssesments />}
+      />
+      <Route path="/feedbackCollection" element={<FeedbackCollection />} />
+      <Route path="/batchPerformance" element={<BatchPerformance />} />
+      <Route path="/traineeProgress" element={<TraineeProgress />} />
+      <Route
+        path="/certificationTracking"
+        element={<CertificationTracking />}
+      />
+      <Route path="/revenueAnalytics" element={<RevenueAnalytics />} />
+      <Route path="/leadConversion" element={<LeadConversion />} />
+      <Route path="/placementAnalytics" element={<PlacementAnalytics />} />
+      <Route path="/profileSettings" element={<ProfileSetting />} />
+      <Route path="/emailSettings" element={<EmailSetting />} />
+      <Route
+        path="/paymentGatewaySettings"
+        element={<PaymentGatewaySettings />}
+      />
+      <Route
+        path="/brandingCustomisationSettings"
+        element={<BrandingSettings />}
+      />
+      <Route path="/permissions" element={<Permissions />} />
     </Route>
   )
 );
