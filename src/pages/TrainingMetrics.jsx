@@ -15,25 +15,105 @@ const userData = [
   {
     userID: 1124,
     fullName: "Ronald Richards",
-    country: "Mexico",
-    type: "Patient",
+    country: "USA",
     lastTimeActive: "June 10, 2021",
-    sessions: 158,
+    courseTaken: 5,
+    gotCertification: 2,
   },
   {
     userID: 3524,
     fullName: "Albert Flores",
-    country: "Mexico",
-    type: "Patient",
+    country: "Canada",
     lastTimeActive: "June 10, 2021",
-    sessions: 154,
+    courseTaken: 4,
+    gotCertification: 1,
+  },
+  {
+    userID: 7571,
+    fullName: "Wade Warren",
+    country: "South Africa",
+    lastTimeActive: "June 10, 2021",
+    courseTaken: 3,
+    gotCertification: 1,
+  },
+  {
+    userID: 124,
+    fullName: "Brooklyn Simmons",
+    country: "Brazil",
+    lastTimeActive: "June 10, 2021",
+    courseTaken: 2,
+    gotCertification: 1,
+  },
+  {
+    userID: 235,
+    fullName: "Devon Lane",
+    country: "Portugal",
+    lastTimeActive: "June 10, 2021",
+    courseTaken: 1,
+    gotCertification: 1,
+  },
+  {
+    userID: 256,
+    fullName: "Marvin McKinney",
+    country: "Mexico",
+    lastTimeActive: "June 10, 2021",
+    courseTaken: 1,
+    gotCertification: 1,
+  },
+  {
+    userID: 257,
+    fullName: "Marvin McKinney",
+    country: "USA",
+    lastTimeActive: "June 10, 2021",
+    courseTaken: 1,
+    gotCertification: 1,
+  },
+  {
+    userID: 258,
+    fullName: "Marvin McKinney",
+    country: "Australia",
+    lastTimeActive: "June 10, 2021",
+    courseTaken: 1,
+    gotCertification: 1,
+  },
+  {
+    userID: 259,
+    fullName: "Marvin McKinney",
+    country: "New Zealand",
+    lastTimeActive: "June 10, 2021",
+    courseTaken: 1,
+    gotCertification: 1,
+  },
+  {
+    userID: 260,
+    fullName: "Marvin McKinney",
+    country: "Mexico",
+    lastTimeActive: "June 10, 2021",
+    courseTaken: 1,
+    gotCertification: 1,
+  },
+  {
+    userID: 261,
+    fullName: "Marvin McKinney",
+    country: "Zimbabwe",
+    lastTimeActive: "June 10, 2021",
+    courseTaken: 1,
+    gotCertification: 1,
+  },
+  {
+    userID: 262,
+    fullName: "Marvin McKinney",
+    country: "South Africa",
+    lastTimeActive: "June 10, 2021",
+    courseTaken: 1,
+    gotCertification: 1,
   },
 ];
 function TrainingMetrics() {
   return (
     <div className="flex-1 p-[32px]   ">
       <h1 className="text-[24px] text-[#00263E] font-[700] pl-[10px] pb-[24px]">
-        Overview
+        Training Metrics
       </h1>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         <Card className="bg-[#fff] rounded-[8px] shadow">
@@ -117,9 +197,10 @@ function TrainingMetrics() {
             <TableRow>
               <TableHead className="text-center">User ID</TableHead>
               <TableHead className="text-center">Full Name</TableHead>
-
-              {/* <TableHead className="text-center">Last Time Active</TableHead> */}
-              <TableHead className="text-center">Total course</TableHead>
+              <TableHead className="text-center">Country</TableHead>
+              <TableHead className="text-center">Course Taken</TableHead>
+              <TableHead className="text-center">Got Certification</TableHead>
+              <TableHead className="text-center">Last Time Active</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -128,11 +209,16 @@ function TrainingMetrics() {
                 <TableCell className="text-center">{user?.userID}</TableCell>
                 <TableCell className="text-center">{user?.fullName}</TableCell>
 
-                {/* <TableCell className="text-center">
+                <TableCell className="text-center">{user?.country}</TableCell>
+                <TableCell className="text-center">
+                  {user?.courseTaken}
+                </TableCell>
+                <TableCell className="text-center">
+                  {user?.gotCertification}
+                </TableCell>
+                <TableCell className="text-center">
                   {user?.lastTimeActive}
-                </TableCell> */}
-                <TableCell className="text-center">{user?.sessions}</TableCell>
-                <TableCell></TableCell>
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>

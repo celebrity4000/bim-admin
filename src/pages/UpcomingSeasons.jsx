@@ -91,7 +91,7 @@ function UpcomingSeasons() {
   return (
     <div className="container mx-auto py-10">
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold">All Courses</h1>
+        <h1 className="text-3xl font-bold">Upcoming Seasons</h1>
       </div>
       <Table className="bg-white rounded-[8px]">
         <TableHeader>
