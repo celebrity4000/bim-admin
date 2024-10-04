@@ -47,10 +47,10 @@ export default function TrainerManagement() {
         <TabsList>
           <TabsTrigger value="profiles">Trainer Profiles</TabsTrigger>
           <TabsTrigger value="schedule">Schedule Management</TabsTrigger>
-          <TabsTrigger value="feedback">Trainer Feedback</TabsTrigger>
+          {/* <TabsTrigger value="feedback">Trainer Feedback</TabsTrigger> */}
         </TabsList>
 
-        <TabsContent value="profiles">
+        <TabsContent value="profiles" className = 'bg-white'>
           <Card>
             <CardHeader>
               <CardTitle>Trainer Profiles</CardTitle>
@@ -90,8 +90,8 @@ export default function TrainerManagement() {
           </Card>
         </TabsContent>
 
-        <TabsContent value="schedule">
-          <Card>
+        <TabsContent value="schedule" className = 'bg-white'>
+          <Card >
             <CardHeader>
               <CardTitle>Schedule Management</CardTitle>
             </CardHeader>
@@ -132,7 +132,7 @@ export default function TrainerManagement() {
                         <SelectTrigger>
                           <SelectValue placeholder="Select a trainer" />
                         </SelectTrigger>
-                        <SelectContent>
+                        <SelectContent className = 'bg-white'>
                           {trainers.map((trainer) => (
                             <SelectItem key={trainer.id} value={trainer.id.toString()}>{trainer.name}</SelectItem>
                           ))}

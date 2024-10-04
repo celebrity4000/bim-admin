@@ -63,7 +63,7 @@ const ProfileSettings = () => {
               <SelectTrigger>
                 <SelectValue placeholder="Select role" />
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent className = 'bg-white'>
                 <SelectItem value="Super Admin">Super Admin</SelectItem>
                 <SelectItem value="Admin">Admin</SelectItem>
                 <SelectItem value="Moderator">Moderator</SelectItem>

@@ -55,30 +55,18 @@ const router = createBrowserRouter(
       <Route path="/helpDesk" element={<HelpDesk />} />
 
       <Route path="/batchesManagement" element={<BatchManagement />} />
-      <Route
-        path="/assignmentsAndAssesments"
-        element={<AssignmentsAndAssesments />}
-      />
+      <Route path="/assignmentsAndAssesments" element={<AssignmentsAndAssesments />}/>
       <Route path="/feedbackCollection" element={<FeedbackCollection />} />
       <Route path="/batchPerformance" element={<BatchPerformance />} />
       <Route path="/traineeProgress" element={<TraineeProgress />} />
-      <Route
-        path="/certificationTracking"
-        element={<CertificationTracking />}
-      />
+      <Route path="/certificationTracking" element={<CertificationTracking />} />
       <Route path="/revenueAnalytics" element={<RevenueAnalytics />} />
       <Route path="/leadConversion" element={<LeadConversion />} />
       <Route path="/placementAnalytics" element={<PlacementAnalytics />} />
       <Route path="/profileSettings" element={<ProfileSetting />} />
       <Route path="/emailSettings" element={<EmailSetting />} />
-      <Route
-        path="/paymentGatewaySettings"
-        element={<PaymentGatewaySettings />}
-      />
-      <Route
-        path="/brandingCustomisationSettings"
-        element={<BrandingSettings />}
-      />
+      <Route path="/paymentGatewaySettings" element={<PaymentGatewaySettings />} />
+      <Route path="/brandingCustomisationSettings" element={<BrandingSettings />} />
       <Route path="/permissions" element={<Permissions />} />
     </Route>
   )
