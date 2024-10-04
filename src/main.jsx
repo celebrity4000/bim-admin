@@ -17,6 +17,10 @@ import VideoClass from "./pages/VideoClass";
 import TrainingMetrics from "./pages/TrainingMetrics";
 import UpcomingSeasons from "./pages/UpcomingSeasons";
 
+import Trainee from "./pages/userManagement/Trainees";
+import TrainerManagement from "./pages/userManagement/Trainers";
+import HelpDesk from "./pages/helpAndSupport/HelpDesk";
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
@@ -24,10 +28,16 @@ const router = createBrowserRouter(
       <Route path="/overview" element={<Overview />} />
       <Route path="/trainingMetrics" element={<TrainingMetrics />} />
       <Route path="/user" element={<User />} />
+      <Route path="/treinee" element={<Trainee />} />
+      <Route path="/treiner" element={<TrainerManagement />} />
       <Route path="/blog" element={<Blogs />} />
+
       <Route path="/courseManagement" element={<Courses />} />
       <Route path="/class" element={<VideoClass />} />
       <Route path="/upcomingSeasons" element={<UpcomingSeasons />} />
+
+      <Route path="/courseCatelog" element={<Courses />} />
+      <Route path="/helpDesk" element={<HelpDesk />} />
     </Route>
   )
 );
