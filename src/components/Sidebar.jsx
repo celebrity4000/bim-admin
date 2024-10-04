@@ -153,26 +153,26 @@ const sidebarData = [
         navigate: "/profileSettings",
         icon: <MdOutlineSettings size={25} />,
       },
-      {
-        name: "Email Settings",
-        navigate: "/emailSettings",
-        icon: <MdOutlineMailOutline size={25} />,
-      },
+      // {
+      //   name: "Email Settings",
+      //   navigate: "/emailSettings",
+      //   icon: <MdOutlineMailOutline size={25} />,
+      // },
       {
         name: "Payment Gateway Settings",
         navigate: "/paymentGatewaySettings",
         icon: <MdOutlinePayment size={25} />,
       },
-      {
-        name: "Branding Customisation Settings",
-        navigate: "/brandingCustomisationSettings",
-        icon: <MdOutlineBrandingWatermark size={25} />,
-      },
-      {
-        name: "Permissions",
-        navigate: "/permissions",
-        icon: <MdOutlineSettings size={25} />,
-      },
+      // {
+      //   name: "Branding Customisation Settings",
+      //   navigate: "/brandingCustomisationSettings",
+      //   icon: <MdOutlineBrandingWatermark size={25} />,
+      // },
+      // {
+      //   name: "Permissions",
+      //   navigate: "/permissions",
+      //   icon: <MdOutlineSettings size={25} />,
+      // },
     ],
   },
   {
