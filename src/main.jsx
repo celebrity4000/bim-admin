@@ -17,6 +17,8 @@ import VideoClass from "./pages/VideoClass";
 import Trainee from "./pages/userManagement/Trainees";
 import TrainerManagement from "./pages/userManagement/Trainers";
 import HelpDesk from "./pages/helpAndSupport/HelpDesk";
+import ProfileSettings from "./pages/settings/ProfileSetting";
+import PaymentGateways from "./pages/settings/PaymentGatewaySettings";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -29,6 +31,8 @@ const router = createBrowserRouter(
       <Route path="/blog" element={<Blogs />} />
       <Route path="/courseCatelog" element={<Courses />} />
       <Route path="/helpDesk" element={<HelpDesk/>} />
+      <Route path="/profileSettings" element={<ProfileSettings/>} />
+      <Route path="/paymentSettings" element={<PaymentGateways/>} />
     </Route>
   )
 );
