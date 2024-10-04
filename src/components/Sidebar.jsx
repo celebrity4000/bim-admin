@@ -1,18 +1,28 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { MdDashboard, MdVideoCall } from "react-icons/md";
+import { MdDashboard, MdUpcoming, MdVideoCall } from "react-icons/md";
 import { FiUsers } from "react-icons/fi";
 import { MdWifiCalling3 } from "react-icons/md";
-import { TbLogs } from "react-icons/tb";
+import { TbLogs, TbStackFilled } from "react-icons/tb";
 import { MdOutlineSettings } from "react-icons/md";
 const sidebarData = [
   { navigate: "/overview", name: "Overview", icon: <MdDashboard size={30} /> },
+  {
+    navigate: "/trainingMetrics",
+    name: "Training Metrics",
+    icon: <TbStackFilled size={30} />,
+  },
   { navigate: "/blog", name: "Blogs", icon: <TbLogs size={30} /> },
   // { navigate: "/user", name: "Users", icon: <FiUsers size={30} /> },
   {
     navigate: "/courseManagement",
     name: "Course ",
     icon: <MdWifiCalling3 size={30} />,
+  },
+  {
+    navigate: "/upcomingSeasons",
+    name: "Upcoming Seasons ",
+    icon: <MdUpcoming size={30} />,
   },
   { navigate: "/class", name: "Video Class", icon: <MdVideoCall size={30} /> },
   // {
@@ -38,8 +48,7 @@ function Sidebar() {
                       : "text-[#455560] "
                   }`
                 }
-                to={item.navigate}
-              >
+                to={item.navigate}>
                 {item.icon}
                 {item.name}
               </NavLink>
