@@ -31,6 +31,11 @@ const sidebarData = [
     isDropdown: true,
     items: [
       {
+        name: "Overview Catalog",
+        navigate: "/overview",
+        icon: <MdDashboard size={25} />,
+      },
+      {
         name: "Upcoming Seasons",
         navigate: "/upcomingSeasons",
         icon: <MdDashboard size={25} />,
@@ -175,18 +180,6 @@ const sidebarData = [
     name: "Help and Support",
     icon: <MdContactSupport size={30} />,
     isDropdown: false,
-    // items: [
-    //   {
-    //     name: "Help Desk",
-    //     navigate: "/contact",
-    //     icon: <SiHelpdesk size={25} />,
-    //   },
-    //   {
-    //     name: "FAQs",
-    //     navigate: "/faqs",
-    //     icon: <MdContactSupport size={25} />,
-    //   },
-    // ]
   },
 ];
 
