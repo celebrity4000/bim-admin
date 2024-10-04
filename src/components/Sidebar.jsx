@@ -1,9 +1,22 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { MdDashboard, MdContactSupport, MdOutlineSettings, MdAssignmentAdd, MdFeedback, MdOutlineMailOutline, MdOutlinePayment, MdOutlineBrandingWatermark } from "react-icons/md";
+import {
+  MdDashboard,
+  MdContactSupport,
+  MdOutlineSettings,
+  MdAssignmentAdd,
+  MdFeedback,
+  MdOutlineMailOutline,
+  MdOutlinePayment,
+  MdOutlineBrandingWatermark,
+} from "react-icons/md";
 import { RiArrowDropDownFill } from "react-icons/ri";
 import { TbReportAnalytics, TbLogs } from "react-icons/tb";
-import { GrCatalog, GrCertificate, GrDocumentPerformance } from "react-icons/gr";
+import {
+  GrCatalog,
+  GrCertificate,
+  GrDocumentPerformance,
+} from "react-icons/gr";
 import { FiUsers } from "react-icons/fi";
 import { SiHelpdesk } from "react-icons/si";
 import { MdWifiCalling3 } from "react-icons/md";
@@ -15,7 +28,24 @@ const sidebarData = [
     navigate: "/overview",
     name: "Overview",
     icon: <MdDashboard size={30} />,
-    isDropdown: false,
+    isDropdown: true,
+    items: [
+      {
+        name: "Overview Catalog",
+        navigate: "/overview",
+        icon: <MdDashboard size={25} />,
+      },
+      {
+        name: "Upcoming Seasons",
+        navigate: "/upcomingSeasons",
+        icon: <MdDashboard size={25} />,
+      },
+      {
+        name: "Training Metrics",
+        navigate: "/trainingMetrics",
+        icon: <MdDashboard size={25} />,
+      },
+    ],
   },
   {
     navigate: "/blog",
@@ -44,7 +74,7 @@ const sidebarData = [
       //   navigate: "/rolesandpermissions",
       //   icon: <FiUsers size={25} />,
       // },
-    ]
+    ],
   },
   {
     navigate: "/courseManagement",
@@ -59,20 +89,20 @@ const sidebarData = [
       },
       {
         name: "Batch Management",
-        navigate: "/batches",
+        navigate: "/batchesManagement",
         icon: <MdWifiCalling3 size={25} />,
       },
       {
         name: "Assignments & Assessments",
-        navigate: "/certifications",
-        icon: <MdAssignmentAdd size = {25}/>,
+        navigate: "/assignmentsAndAssesments",
+        icon: <MdAssignmentAdd size={25} />,
       },
       {
         name: "Feedback Collection",
-        navigate: "/certifications",
+        navigate: "/feedbackCollection",
         icon: <MdFeedback size={25} />,
       },
-    ]
+    ],
   },
   {
     navigate: "/reports",
@@ -82,35 +112,35 @@ const sidebarData = [
     items: [
       {
         name: "Batch Performance",
-        navigate: "/sales",
+        navigate: "/batchPerformance",
         icon: <GrDocumentPerformance size={25} />,
       },
       {
         name: "Trainee Progress",
-        navigate: "/course",
+        navigate: "/traineeProgress",
         icon: <FaBarsProgress size={25} />,
       },
       {
         name: "Certification Tracking",
-        navigate: "/user",
+        navigate: "/certificationTracking",
         icon: <GrCertificate size={25} />,
       },
       {
         name: "Revenue Analytics",
-        navigate: "/performance",
+        navigate: "/revenueAnalytics",
         icon: <FaMoneyCheckDollar size={25} />,
       },
       {
         name: "Lead Conversion",
-        navigate: "/performance",
+        navigate: "/leadConversion",
         icon: <TbReportAnalytics size={25} />,
       },
       {
         name: "Placement Analytics",
-        navigate: "/performance",
+        navigate: "/placementAnalytics",
         icon: <IoMdAnalytics size={25} />,
       },
-    ]
+    ],
   },
   {
     navigate: "/settings",
@@ -123,26 +153,26 @@ const sidebarData = [
         navigate: "/profileSettings",
         icon: <MdOutlineSettings size={25} />,
       },
-      // {
-      //   name: "Email Settings",
-      //   navigate: "/emailSettings",
-      //   icon: <MdOutlineMailOutline size={25} />,
-      // },
+      {
+        name: "Email Settings",
+        navigate: "/emailSettings",
+        icon: <MdOutlineMailOutline size={25} />,
+      },
       {
         name: "Payment Gateway Settings",
-        navigate: "/paymentSettings",
+        navigate: "/paymentGatewaySettings",
         icon: <MdOutlinePayment size={25} />,
       },
-      // {
-      //   name: "Branding Customisation Settings",
-      //   navigate: "/brandingSettings",
-      //   icon: <MdOutlineBrandingWatermark size={25} />,
-      // },
-      // {
-      //   name: "Permissions",
-      //   navigate: "/user",
-      //   icon: <MdOutlineSettings size={25} />,
-      // },
+      {
+        name: "Branding Customisation Settings",
+        navigate: "/brandingCustomisationSettings",
+        icon: <MdOutlineBrandingWatermark size={25} />,
+      },
+      {
+        name: "Permissions",
+        navigate: "/permissions",
+        icon: <MdOutlineSettings size={25} />,
+      },
     ],
   },
   {
@@ -150,18 +180,6 @@ const sidebarData = [
     name: "Help and Support",
     icon: <MdContactSupport size={30} />,
     isDropdown: false,
-    // items: [
-    //   {
-    //     name: "Help Desk",
-    //     navigate: "/contact",
-    //     icon: <SiHelpdesk size={25} />,
-    //   },
-    //   {
-    //     name: "FAQs",
-    //     navigate: "/faqs",
-    //     icon: <MdContactSupport size={25} />,
-    //   },
-    // ]
   },
 ];
 
@@ -170,7 +188,7 @@ function Sidebar() {
 
   const toggleDropdown = (index) => {
     if (dropdownOpen === index) {
-      setDropdownOpen(null); 
+      setDropdownOpen(null);
     } else {
       setDropdownOpen(index);
     }
@@ -186,14 +204,13 @@ function Sidebar() {
                 <NavLink
                   className={({ isActive }) =>
                     `flex justify-between items-center rounded-l-[10px] px-3 py-2 transition-all hover:text-darkgray dark:text-gray-400 dark:hover:text-gray-50 ${
-                      (isActive && !item.isDropdown) 
+                      isActive && !item.isDropdown
                         ? "bg-[#F5F5F5] border-r-4 border-pink text-darkgray font-[600]"
                         : "text-[#455560]"
                     }`
                   }
                   to={item.isDropdown ? "#" : item.navigate}
-                  onClick={() => item.isDropdown && toggleDropdown(index)}
-                >
+                  onClick={() => item.isDropdown && toggleDropdown(index)}>
                   <div className="flex items-center gap-3">
                     {item.icon}
                     {item.name}
@@ -217,8 +234,7 @@ function Sidebar() {
                               : "text-[#455560]"
                           }`
                         }
-                        to={subItem.navigate}
-                      >
+                        to={subItem.navigate}>
                         {subItem.icon}
                         {subItem.name}
                       </NavLink>

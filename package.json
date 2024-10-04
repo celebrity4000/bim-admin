@@ -21,6 +21,7 @@
     "@radix-ui/react-slot": "^1.1.0",
     "@radix-ui/react-tabs": "^1.1.1",
     "axios": "^1.7.5",
+    "bim_frontend": "file:",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.424.0",
@@ -30,6 +31,7 @@
     "react-phone-input-2": "^2.15.1",
     "react-router-dom": "^6.26.0",
     "tailwind-merge": "^2.4.0",
+    "tailwind-scrollbar": "^3.1.0",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
