@@ -28,7 +28,7 @@ const FeedbackCollection = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4">
-      <Card className="w-full max-w-lg bg-white shadow-lg rounded-lg">
+      <Card className="w-full max-w-lg shadow-lg rounded-lg">
         <CardHeader>
           <CardTitle className="text-center text-xl font-bold text-[#00263E]">
             Feedback Form
@@ -48,34 +48,34 @@ const FeedbackCollection = () => {
                 <SelectTrigger className="w-full border border-[#FF006B] rounded-lg focus:ring-2 focus:ring-[#FF006B]">
                   <SelectValue placeholder="Select feedback type" />
                 </SelectTrigger>
-                <SelectContent className="bg-white rounded-lg shadow-lg border border-[#FF006B]">
+                <SelectContent className="rounded-lg shadow-lg border border-[#FF006B]">
                   <SelectItem
-                    className="bg-white text-black hover:bg-gray-100"
+                    className=" text-black hover:bg-gray-100"
                     value="Course">
                     Course
                   </SelectItem>
                   <SelectItem
-                    className="bg-white text-black hover:bg-gray-100"
+                    className=" text-black hover:bg-gray-100"
                     value="Assignment">
                     Assignment
                   </SelectItem>
                   <SelectItem
-                    className="bg-white text-black hover:bg-gray-100"
+                    className=" text-black hover:bg-gray-100"
                     value="General">
                     General
                   </SelectItem>
                   <SelectItem
-                    className="bg-white text-black hover:bg-gray-100"
+                    className=" text-black hover:bg-gray-100"
                     value="Bug Report">
                     Bug Report
                   </SelectItem>
                   <SelectItem
-                    className="bg-white text-black hover:bg-gray-100"
+                    className=" text-black hover:bg-gray-100"
                     value="Feature Request">
                     Feature Request
                   </SelectItem>
                   <SelectItem
-                    className="bg-white text-black hover:bg-gray-100"
+                    className=" text-black hover:bg-gray-100"
                     value="Other">
                     Other
                   </SelectItem>

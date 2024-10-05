@@ -12,7 +12,7 @@ import Layout from "./layout/Layout.jsx";
 import Overview from "./pages/Overview.jsx";
 import User from "./pages/User.jsx";
 import Blogs from "./pages/Blogs.jsx";
-import Courses from "./pages/Courses.jsx";
+// import Courses from "./pages/Courses.jsx";
 import VideoClass from "./pages/VideoClass";
 import TrainingMetrics from "./pages/TrainingMetrics";
 import UpcomingSeasons from "./pages/UpcomingSeasons";
@@ -34,6 +34,7 @@ import EmailSetting from "./pages/settings/EmailSetting";
 import PaymentGatewaySettings from "./pages/settings/PaymentGatewaySettings";
 import BrandingSettings from "./pages/settings/BrandingSettings";
 import Permissions from "./pages/settings/Permissions";
+import CourseCatelog from "./pages/courseManagement/CourseCatelog";
 
 
 const router = createBrowserRouter(
@@ -46,14 +47,10 @@ const router = createBrowserRouter(
       <Route path="/treinee" element={<Trainee />} />
       <Route path="/treiner" element={<TrainerManagement />} />
       <Route path="/blog" element={<Blogs />} />
-
-      <Route path="/courseManagement" element={<Courses />} />
       <Route path="/class" element={<VideoClass />} />
       <Route path="/upcomingSeasons" element={<UpcomingSeasons />} />
-
-      <Route path="/courseCatelog" element={<Courses />} />
+      <Route path="/courseCatelog" element={<CourseCatelog />} />
       <Route path="/helpDesk" element={<HelpDesk />} />
-
       <Route path="/batchesManagement" element={<BatchManagement />} />
       <Route path="/assignmentsAndAssesments" element={<AssignmentsAndAssesments />}/>
       <Route path="/feedbackCollection" element={<FeedbackCollection />} />

@@ -71,7 +71,7 @@ const LeadConversion = () => {
 
       <div className="mb-4">
         <Select value={timeFrame} onValueChange={setTimeFrame}>
-          <SelectTrigger className = 'bg-white'>
+          <SelectTrigger className = 'bg-white w-[180px]'>
             <SelectValue placeholder="Select time frame" />
           </SelectTrigger>
           <SelectContent className = 'bg-white'>

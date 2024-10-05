@@ -93,7 +93,7 @@ const sidebarData = [
         icon: <MdWifiCalling3 size={25} />,
       },
       {
-        name: "Assignments & Assessments",
+        name: "Assignment & Assessments",
         navigate: "/assignmentsAndAssesments",
         icon: <MdAssignmentAdd size={25} />,
       },
