@@ -90,7 +90,7 @@ export default function BatchManagement() {
                       <PopoverTrigger asChild>
                         <Button
                           variant={"outline"}
-                          className={`col-span-3 justify-start text-left font-normal ${!newBatch.startDate && "text-muted-foreground"}`}
+                          className={`col-span-3 justify-start border-gray-200 rounded-[8px] text-left font-normal ${!newBatch.startDate && "text-muted-foreground"}`}
                         >
                           <CalendarIcon className="mr-2 h-4 w-4" />
                           {newBatch.startDate ? format(newBatch.startDate, "PPP") : <span>Pick a date</span>}
@@ -114,7 +114,7 @@ export default function BatchManagement() {
                       <PopoverTrigger asChild>
                         <Button
                           variant={"outline"}
-                          className={`col-span-3 justify-start text-left font-normal ${!newBatch.endDate && "text-muted-foreground"}`}
+                          className={`col-span-3 justify-start text-left border-gray-200 rounded-[8px] font-normal ${!newBatch.endDate && "text-muted-foreground"}`}
                         >
                           <CalendarIcon className="mr-2 h-4 w-4" />
                           {newBatch.endDate ? format(newBatch.endDate, "PPP") : <span>Pick a date</span>}

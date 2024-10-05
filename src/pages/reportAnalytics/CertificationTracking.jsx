@@ -91,7 +91,7 @@ const CertificationTracking = () => {
         </CardContent>
       </Card>
 
-      <Tabs value={activeTab} onValueChange={setActiveTab} className = 'bg-white'>
+      <Tabs value={activeTab} onValueChange={setActiveTab}>
         <TabsList>
           <TabsTrigger value="issued">Issued Certifications</TabsTrigger>
           <TabsTrigger value="renewals">Upcoming Renewals</TabsTrigger>

@@ -140,7 +140,7 @@ export default function User() {
   };
 
   return (
-    <div className="flex-1 h-screen mx-[32px] mt-[32px] ">
+    <div className="flex-1 m-10 ">
       <div className="flex justify-between items-center mb-[24px]">
         <div>
           <h1 className="text-[#00263E] text-[24px] font-[700]">Users</h1>

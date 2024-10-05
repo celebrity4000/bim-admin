@@ -106,7 +106,7 @@ export default function AssignmentsAndAssessments() {
                         <Button
                           id="deadline"
                           variant={"outline"}
-                          className={`col-span-3 justify-start text-left font-normal ${!newAssignment.deadline && "text-muted-foreground"}`}
+                          className={`col-span-3 justify-start border-gray-200 rounded-[8px] text-left font-normal ${!newAssignment.deadline && "text-muted-foreground"}`}
                         >
                           <CalendarIcon className="mr-2 h-4 w-4" />
                           {newAssignment.deadline ? format(newAssignment.deadline, "PPP") : <span>Pick a date</span>}

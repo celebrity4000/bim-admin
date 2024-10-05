@@ -12,7 +12,6 @@ import Layout from "./layout/Layout.jsx";
 import Overview from "./pages/Overview.jsx";
 import User from "./pages/User.jsx";
 import Blogs from "./pages/Blogs.jsx";
-// import Courses from "./pages/Courses.jsx";
 import VideoClass from "./pages/VideoClass";
 import TrainingMetrics from "./pages/TrainingMetrics";
 import UpcomingSeasons from "./pages/UpcomingSeasons";
