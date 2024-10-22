@@ -25,10 +25,10 @@ const HelpDesk = () => {
   };
 
   return (
-    <div className="p-4 max-w-[95%] mx-auto bg-white m-10">
+    <div className="p-4 max-w-[95%] mx-auto m-10">
       <h1 className="text-2xl font-bold mb-4">Help Desk</h1>
       
-      <form onSubmit={handleSubmit} className="mb-6 flex gap-2 ">
+      <form onSubmit={handleSubmit} className="mb-6 flex gap-2">
         <Input
           type="text"
           placeholder="Enter your query or issue..."

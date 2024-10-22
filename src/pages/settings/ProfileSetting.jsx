@@ -63,7 +63,7 @@ const ProfileSettings = () => {
               <SelectTrigger>
                 <SelectValue placeholder="Select role" />
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent >
                 <SelectItem value="Super Admin">Super Admin</SelectItem>
                 <SelectItem value="Admin">Admin</SelectItem>
                 <SelectItem value="Moderator">Moderator</SelectItem>
@@ -97,7 +97,7 @@ const ProfileSettings = () => {
   };
 
   return (
-    <div className="p-4 bg-white m-10">
+    <div className="p-4 w-1/2 m-10 ">
       <h1 className="text-2xl font-bold mb-4">Profile Settings</h1>
       <Tabs value={activeTab} onValueChange={setActiveTab}>
         <TabsList className="grid w-full grid-cols-3">

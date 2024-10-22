@@ -1,5 +1,3 @@
-"use client"
-
 import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "../../components/ui/card"
 import { Button } from "../../components/ui/button"
@@ -31,7 +29,7 @@ export default function Trainee() {
   }
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="m-10 p-4">
       <h1 className="text-3xl font-bold mb-6">Trainee Management System</h1>
       <Tabs defaultValue="profiles" className="space-y-4">
         <TabsList>
@@ -40,7 +38,7 @@ export default function Trainee() {
           {/* <TabsTrigger value="progress">Progress Reports</TabsTrigger> */}
         </TabsList>
 
-        <TabsContent value="profiles" className= 'bg-white'>
+        <TabsContent value="profiles">
           <Card>
             <CardHeader>
               <CardTitle>Candidate Profiles</CardTitle>
@@ -102,7 +100,7 @@ export default function Trainee() {
                     </SelectContent>
                   </Select>
                 </div>
-                <Button type="submit" className= "bg-pink text-white w-full !rounded-lg">Enrol Candidate</Button>
+                <Button type="submit" className= "w-full">Enrol Candidate</Button>
               </form>
             </CardContent>
           </Card>
