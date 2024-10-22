@@ -1,121 +1,312 @@
-import React from "react";
-import { useForm } from "react-hook-form";
-import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import React, { useState, useEffect } from "react";
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 
-const FeedbackCollection = () => {
-  // Initialize React Hook Form
-  const {
-    register,
-    handleSubmit,
-    setValue,
-    formState: { errors },
-  } = useForm();
+const FeedbackCollectionAdmin = () => {
+  // Example feedback data (replace with API data in real scenario)
+  const initialFeedbackData = [
+    {
+      feedbackID: 1,
+      feedbackType: "course",
+      userID: 1124,
+      fullName: "Ronald Richards",
+      courseID: "CRS001",
+      courseName: "Introduction to React",
+      courseRating: 4,
+      educatorID: "EDU001",
+      educatorName: "John Doe",
+      educatorRating: 5,
+      contentDelivery:
+        "The course content was well-structured and easy to follow.",
+      assignments: "Assignments were challenging but fair.",
+      exams: "Exams were well-organized.",
+      issues: "",
+      bugs: "",
+    },
+    {
+      feedbackID: 2,
+      feedbackType: "general",
+      userID: 3524,
+      fullName: "Albert Flores",
+      issues: "The platform sometimes lags.",
+      bugs: "There are bugs in the video playback feature.",
+    },
+    {
+      feedbackID: 3,
+      feedbackType: "course",
+      userID: 7571,
+      fullName: "Wade Warren",
+      courseID: "CRS002",
+      courseName: "Advanced JavaScript",
+      courseRating: 3,
+      educatorID: "EDU002",
+      educatorName: "Jane Smith",
+      educatorRating: 4,
+      contentDelivery: "Content delivery was decent but could be improved.",
+      assignments: "Assignments were too difficult.",
+      exams: "Exams were fine.",
+      issues: "",
+      bugs: "",
+    },
+    {
+      feedbackID: 4,
+      feedbackType: "general",
+      userID: 124,
+      fullName: "Brooklyn Simmons",
+      issues: "The platform is not beginner-friendly.",
+      bugs: "There are bugs in the course registration process.",
+    },
+    {
+      feedbackID: 5,
+      feedbackType: "course",
+      userID: 235,
+      fullName: "Devon Lane",
+      courseID: "CRS003",
+      courseName: "Python Basics",
+      courseRating: 5,
+      educatorID: "EDU003",
+      educatorName: "Alice Johnson",
+      educatorRating: 3,
+      contentDelivery: "Content delivery was excellent.",
+      assignments: "Assignments were engaging.",
+      exams: "Exams were challenging.",
+      issues: "",
+      bugs: "",
+    },
+    {
+      feedbackID: 6,
+      feedbackType: "general",
+      userID: 256,
+      fullName: "Marvin McKinney",
+      issues: "The platform is not mobile-friendly.",
+      bugs: "There are bugs in the course search feature.",
+    },
+    {
+      feedbackID: 7,
+      feedbackType: "course",
+      userID: 45,
+      fullName: "Savannah Nguyen",
+      courseID: "CRS004",
+      courseName: "Data Structures",
+      courseRating: 2,
+      educatorID: "EDU004",
+      educatorName: "Robert Brown",
+      educatorRating: 2,
+      contentDelivery: "Content delivery was poor.",
+      assignments: "Assignments were not engaging.",
+      exams: "Exams were too difficult.",
+      issues: "",
+      bugs: "",
+    },
+    {
+      feedbackID: 8,
+      feedbackType: "general",
+      userID: 1001,
+      fullName: "Bessie Cooper",
+      issues: "The platform is not user-friendly.",
+      bugs: "There are bugs in the course completion feature.",
+    },
+  ];
 
-  // Handle form submission
-  const onSubmit = (data) => {
-    console.log("Feedback submitted:", data);
+  const [filteredFeedback, setFilteredFeedback] = useState(initialFeedbackData);
+  const [filter, setFilter] = useState({
+    feedbackType: "",
+    courseRating: "",
+    educatorRating: "",
+  });
+
+  // Effect for applying the filters when filter state changes
+  useEffect(() => {
+    const filtered = initialFeedbackData.filter((feedback) => {
+      const typeMatch = filter.feedbackType
+        ? feedback.feedbackType === filter.feedbackType
+        : true;
+      const courseRatingMatch = filter.courseRating
+        ? feedback.courseRating &&
+          feedback.courseRating === parseInt(filter.courseRating)
+        : true;
+      const educatorRatingMatch = filter.educatorRating
+        ? feedback.educatorRating &&
+          feedback.educatorRating === parseInt(filter.educatorRating)
+        : true;
+
+      return typeMatch && courseRatingMatch && educatorRatingMatch;
+    });
+
+    setFilteredFeedback(filtered);
+  }, [filter]);
+
+  // Handle filter change
+  const handleFilterChange = (e) => {
+    const { name, value } = e.target;
+
+    setFilter((prev) => {
+      // If feedbackType is set to "All", reset courseRating and educatorRating
+      if (name === "feedbackType" && value === "") {
+        return {
+          ...prev,
+          feedbackType: value,
+          courseRating: "",
+          educatorRating: "",
+        };
+      }
+      return { ...prev, [name]: value };
+    });
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4">
-      <Card className="w-full max-w-lg bg-white shadow-lg rounded-lg">
-        <CardHeader>
-          <CardTitle className="text-center text-xl font-bold text-[#00263E]">
-            Feedback Form
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-            {/* Feedback Type Dropdown */}
-            <div className="flex flex-col space-y-2">
-              <Label htmlFor="feedbackType" className="text-[#00263E]">
-                Feedback Type
-              </Label>
-              <Select
-                onValueChange={(value) =>
-                  setValue("feedbackType", value, { shouldValidate: true })
-                }>
-                <SelectTrigger className="w-full border border-[#FF006B] rounded-lg focus:ring-2 focus:ring-[#FF006B]">
-                  <SelectValue placeholder="Select feedback type" />
-                </SelectTrigger>
-                <SelectContent className="bg-white rounded-lg shadow-lg border border-[#FF006B]">
-                  <SelectItem
-                    className="bg-white text-black hover:bg-gray-100"
-                    value="Course">
-                    Course
-                  </SelectItem>
-                  <SelectItem
-                    className="bg-white text-black hover:bg-gray-100"
-                    value="Assignment">
-                    Assignment
-                  </SelectItem>
-                  <SelectItem
-                    className="bg-white text-black hover:bg-gray-100"
-                    value="General">
-                    General
-                  </SelectItem>
-                  <SelectItem
-                    className="bg-white text-black hover:bg-gray-100"
-                    value="Bug Report">
-                    Bug Report
-                  </SelectItem>
-                  <SelectItem
-                    className="bg-white text-black hover:bg-gray-100"
-                    value="Feature Request">
-                    Feature Request
-                  </SelectItem>
-                  <SelectItem
-                    className="bg-white text-black hover:bg-gray-100"
-                    value="Other">
-                    Other
-                  </SelectItem>
-                </SelectContent>
-              </Select>
-              {errors.feedbackType && (
-                <p className="text-red-500 text-sm">
-                  Feedback type is required
-                </p>
-              )}
-            </div>
+    <div className="p-8">
+      <h1 className="text-2xl text-[#00263E] font-bold pl-2 pb-6">
+        Submitted Feedback
+      </h1>
 
-            {/* Feedback Textarea */}
-            <div className="flex flex-col space-y-2">
-              <Label htmlFor="feedback" className="text-[#00263E]">
-                Your Feedback
-              </Label>
-              <Textarea
-                id="feedback"
-                name="feedback"
-                placeholder="Write your feedback here..."
-                {...register("feedback", { required: true })}
-                className="w-full border border-[#FF006B] rounded-lg focus:ring-2 focus:ring-[#FF006B]"
-              />
-              {errors.feedback && (
-                <p className="text-red-500 text-sm">Feedback is required</p>
-              )}
-            </div>
+      {/* Filter Section */}
+      <div className="flex flex-row space-x-4 mb-4">
+        {/* Filter by Feedback Type */}
+        <div className="flex flex-row gap-2 items-center">
+          <label htmlFor="feedbackType" className="text-[#00263E] font-medium">
+            Feedback Type
+          </label>
+          <select
+            id="feedbackType"
+            name="feedbackType"
+            onChange={handleFilterChange}
+            className="p-2 rounded-lg border border-gray-300 focus:border-blue-500">
+            <option value="">All</option>
+            <option value="course">Course Feedback</option>
+            <option value="general">General Feedback</option>
+          </select>
+        </div>
 
-            {/* Submit Button */}
-            <Button
-              type="submit"
-              className="w-full bg-[#FF006B] hover:bg-pink-600 text-white py-2 rounded-lg">
-              Submit Feedback
-            </Button>
-          </form>
-        </CardContent>
-      </Card>
+        {/* Conditionally show Course and Educator Rating Filters */}
+        <div
+          className={`transition-transform duration-500 ease-in-out ${
+            filter.feedbackType === "course"
+              ? "opacity-100 translate-x-0"
+              : "opacity-0 translate-x-10 pointer-events-none"
+          } flex space-x-4`}>
+          {/* Filter by Course Rating */}
+          <div className="flex flex-row gap-2 items-center">
+            <label
+              htmlFor="courseRating"
+              className="text-[#00263E] font-medium">
+              Course Rating
+            </label>
+            <select
+              id="courseRating"
+              name="courseRating"
+              onChange={handleFilterChange}
+              className="p-2 rounded-lg border border-gray-300 focus:border-blue-500">
+              <option value="">All</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+
+          {/* Filter by Educator Rating */}
+          <div className="flex flex-row gap-2 items-center">
+            <label
+              htmlFor="educatorRating"
+              className="text-[#00263E] font-medium">
+              Educator Rating
+            </label>
+            <select
+              id="educatorRating"
+              name="educatorRating"
+              onChange={handleFilterChange}
+              className="p-2 rounded-lg border border-gray-300 focus:border-blue-500">
+              <option value="">All</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      {/* Feedback Table */}
+      <div className="bg-white mt-4 rounded-lg shadow">
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead className="text-center">User ID</TableHead>
+              <TableHead className="text-center">Full Name</TableHead>
+              <TableHead className="text-center">Feedback Type</TableHead>
+              <TableHead className="text-center">Details</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {filteredFeedback.map((feedback) => (
+              <TableRow key={feedback.feedbackID}>
+                <TableCell className="text-center">{feedback.userID}</TableCell>
+                <TableCell className="text-center">
+                  {feedback.fullName}
+                </TableCell>
+                <TableCell className="text-center">
+                  {feedback.feedbackType === "course" ? "Course" : "General"}
+                </TableCell>
+                <TableCell className="text-center">
+                  {feedback.feedbackType === "course" ? (
+                    <div className="text-left">
+                      <p>
+                        <strong>Course ID:</strong> {feedback.courseID}
+                      </p>
+                      <p>
+                        <strong>Course Name:</strong> {feedback.courseName}
+                      </p>
+                      <p>
+                        <strong>Educator ID:</strong> {feedback.educatorID}
+                      </p>
+                      <p>
+                        <strong>Educator Name:</strong> {feedback.educatorName}
+                      </p>
+                      <p>
+                        <strong>Course Rating:</strong> {feedback.courseRating}
+                      </p>
+                      <p>
+                        <strong>Educator Rating:</strong>{" "}
+                        {feedback.educatorRating}
+                      </p>
+                      <p>
+                        <strong>Content Delivery:</strong>{" "}
+                        {feedback.contentDelivery}
+                      </p>
+                      <p>
+                        <strong>Assignments:</strong> {feedback.assignments}
+                      </p>
+                      <p>
+                        <strong>Exams:</strong> {feedback.exams}
+                      </p>
+                    </div>
+                  ) : (
+                    <div className="text-left">
+                      <p>
+                        <strong>Issues:</strong> {feedback.issues}
+                      </p>
+                      <p>
+                        <strong>Bugs:</strong> {feedback.bugs}
+                      </p>
+                    </div>
+                  )}
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </div>
     </div>
   );
 };
 
-export default FeedbackCollection;
+export default FeedbackCollectionAdmin;
