@@ -91,6 +91,8 @@ function Navbar() {
     setIsModalOpen(!isModalOpen);
   };
 
+  const route = window.location.pathname;
+
   // Function to mark a notification as read
   const markAsRead = (id) => {
     setNotifications((prevNotifications) =>
@@ -110,46 +112,48 @@ function Navbar() {
         />
       </Link>
 
-      <div className="relative px-1 hover:px-0">
-        <div className="relative group" onClick={toggleModal}>
-          <IoNotifications className="text-gray-600 text-[24px] cursor-pointer w-6 h-6 group-hover:text-black group-hover:w-7 group-hover:h-7" />
+      {route != "/" && (
+        <div className="relative px-1 hover:px-0">
+          <div className="relative group" onClick={toggleModal}>
+            <IoNotifications className="text-gray-600 text-[24px] cursor-pointer w-6 h-6 group-hover:text-black group-hover:w-7 group-hover:h-7" />
 
-          {unreadCount > 0 && (
-            <span className="absolute top-[-5px] right-[-5px] bg-gray-600 group-hover:bg-red-600 text-white text-[10px] w-[16px] h-[16px] flex items-center justify-center rounded-full">
-              {unreadCount}
-            </span>
+            {unreadCount > 0 && (
+              <span className="absolute top-[-5px] right-[-5px] bg-gray-600 group-hover:bg-red-600 text-white text-[10px] w-[16px] h-[16px] flex items-center justify-center rounded-full">
+                {unreadCount}
+              </span>
+            )}
+          </div>
+
+          {isModalOpen && (
+            <div className="absolute right-0 mt-2 max-h-80 overflow-y-scroll w-[300px] bg-white shadow-lg border border-gray-200 rounded-lg z-50">
+              <div className="p-4">
+                <h3 className="text-lg font-bold mb-2">Notifications</h3>
+                <ul>
+                  {notifications.length > 0 ? (
+                    notifications.map((notification) => (
+                      <li
+                        key={notification.id}
+                        className={`border-b border-gray-100 py-2 px-2 my-1 cursor-pointer rounded-lg ${
+                          notification.read
+                            ? "bg-gray-100 text-gray-600"
+                            : "bg-blue-100 text-blue-600"
+                        }`}
+                        onClick={() => markAsRead(notification.id)}>
+                        <p className="text-sm">{notification.message}</p>
+                        <p className="text-xs text-gray-500">
+                          {notification.time}
+                        </p>
+                      </li>
+                    ))
+                  ) : (
+                    <li className="text-sm text-gray-500">No notifications</li>
+                  )}
+                </ul>
+              </div>
+            </div>
           )}
         </div>
-
-        {isModalOpen && (
-          <div className="absolute right-0 mt-2 max-h-80 overflow-y-scroll w-[300px] bg-white shadow-lg border border-gray-200 rounded-lg z-50">
-            <div className="p-4">
-              <h3 className="text-lg font-bold mb-2">Notifications</h3>
-              <ul>
-                {notifications.length > 0 ? (
-                  notifications.map((notification) => (
-                    <li
-                      key={notification.id}
-                      className={`border-b border-gray-100 py-2 px-2 my-1 cursor-pointer rounded-lg ${
-                        notification.read
-                          ? "bg-gray-100 text-gray-600"
-                          : "bg-blue-100 text-blue-600"
-                      }`}
-                      onClick={() => markAsRead(notification.id)}>
-                      <p className="text-sm">{notification.message}</p>
-                      <p className="text-xs text-gray-500">
-                        {notification.time}
-                      </p>
-                    </li>
-                  ))
-                ) : (
-                  <li className="text-sm text-gray-500">No notifications</li>
-                )}
-              </ul>
-            </div>
-          </div>
-        )}
-      </div>
+      )}
 
       {/* Uncomment this if you want a language selection dropdown */}
       {/* <select className="w-[57px] h-[32px]  border-[#EEE] border outline-none p-[4px] rounded-[4px] text-[14px] ">

@@ -34,7 +34,7 @@ import PaymentGatewaySettings from "./pages/settings/PaymentGatewaySettings";
 import BrandingSettings from "./pages/settings/BrandingSettings";
 import Permissions from "./pages/settings/Permissions";
 import CourseCatelog from "./pages/courseManagement/CourseCatelog";
-
+import { Toaster } from "./components/ui/toaster";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -51,18 +51,30 @@ const router = createBrowserRouter(
       <Route path="/courseCatelog" element={<CourseCatelog />} />
       <Route path="/helpDesk" element={<HelpDesk />} />
       <Route path="/batchesManagement" element={<BatchManagement />} />
-      <Route path="/assignmentsAndAssesments" element={<AssignmentsAndAssesments />}/>
+      <Route
+        path="/assignmentsAndAssesments"
+        element={<AssignmentsAndAssesments />}
+      />
       <Route path="/feedbackCollection" element={<FeedbackCollection />} />
       <Route path="/batchPerformance" element={<BatchPerformance />} />
       <Route path="/traineeProgress" element={<TraineeProgress />} />
-      <Route path="/certificationTracking" element={<CertificationTracking />} />
+      <Route
+        path="/certificationTracking"
+        element={<CertificationTracking />}
+      />
       <Route path="/revenueAnalytics" element={<RevenueAnalytics />} />
       <Route path="/leadConversion" element={<LeadConversion />} />
       <Route path="/placementAnalytics" element={<PlacementAnalytics />} />
       <Route path="/profileSettings" element={<ProfileSetting />} />
       <Route path="/emailSettings" element={<EmailSetting />} />
-      <Route path="/paymentGatewaySettings" element={<PaymentGatewaySettings />} />
-      <Route path="/brandingCustomisationSettings" element={<BrandingSettings />} />
+      <Route
+        path="/paymentGatewaySettings"
+        element={<PaymentGatewaySettings />}
+      />
+      <Route
+        path="/brandingCustomisationSettings"
+        element={<BrandingSettings />}
+      />
       <Route path="/permissions" element={<Permissions />} />
     </Route>
   )
@@ -70,5 +82,6 @@ const router = createBrowserRouter(
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={router} />
+    <Toaster />
   </React.StrictMode>
 );
