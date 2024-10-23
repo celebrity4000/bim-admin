@@ -10,7 +10,7 @@ import {
   MdOutlinePayment,
   MdOutlineBrandingWatermark,
 } from "react-icons/md";
-import { RiArrowDropDownFill } from "react-icons/ri";
+import { RiArrowDropDownFill, RiArrowDropUpFill } from "react-icons/ri";
 import { TbReportAnalytics, TbLogs } from "react-icons/tb";
 import {
   GrCatalog,
@@ -35,11 +35,11 @@ const sidebarData = [
         navigate: "/overview",
         icon: <MdDashboard size={25} />,
       },
-      {
-        name: "Upcoming Seasons",
-        navigate: "/upcomingSeasons",
-        icon: <MdDashboard size={25} />,
-      },
+      // {
+      //   name: "Upcoming Seasons",
+      //   navigate: "/upcomingSeasons",
+      //   icon: <MdDashboard size={25} />,
+      // },
       {
         name: "Training Metrics",
         navigate: "/trainingMetrics",
@@ -158,11 +158,11 @@ const sidebarData = [
       //   navigate: "/emailSettings",
       //   icon: <MdOutlineMailOutline size={25} />,
       // },
-      {
-        name: "Payment Gateway Settings",
-        navigate: "/paymentGatewaySettings",
-        icon: <MdOutlinePayment size={25} />,
-      },
+      // {
+      //   name: "Payment Gateway Settings",
+      //   navigate: "/paymentGatewaySettings",
+      //   icon: <MdOutlinePayment size={25} />,
+      // },
       // {
       //   name: "Branding Customisation Settings",
       //   navigate: "/brandingCustomisationSettings",
@@ -215,10 +215,15 @@ function Sidebar() {
                     {item.icon}
                     {item.name}
                   </div>
-                  <div className="justify-end">
-                    {item.isDropdown && <RiArrowDropDownFill size={20} />}
-                  </div>
-                  <></>
+                  {item.isDropdown && (
+                    <div className="justify-end">
+                      {dropdownOpen !== index ? (
+                        <RiArrowDropDownFill size={20} />
+                      ) : (
+                        <RiArrowDropUpFill size={20} />
+                      )}
+                    </div>
+                  )}
                 </NavLink>
 
                 {/* Dropdown Section */}
