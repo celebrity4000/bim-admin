@@ -103,7 +103,7 @@ const ProfileSettings = () => {
         <TabsList className="grid w-full grid-cols-3">
           <TabsTrigger value="admin">Admin</TabsTrigger>
           <TabsTrigger value="trainer">Trainer</TabsTrigger>
-          <TabsTrigger value="candidate">Trainee</TabsTrigger>
+          <TabsTrigger value="candidate">Candidate</TabsTrigger>
         </TabsList>
         <TabsContent value="admin">
           <Card>
