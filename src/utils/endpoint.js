@@ -3,4 +3,5 @@ export const endpoint = {
   blogEndpoint: `${import.meta.env.VITE_API_ENDPOINT}/api/blog`,
   courseEndpoint: `${import.meta.env.VITE_API_ENDPOINT}/api/course`,
   batchEndpoint: `${import.meta.env.VITE_API_ENDPOINT}/api/batch`,
+  feedbackEndpoint: `${import.meta.env.VITE_API_ENDPOINT}/api/feedback`,
 };
