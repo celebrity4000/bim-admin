@@ -35,47 +35,204 @@ import BrandingSettings from "./pages/settings/BrandingSettings";
 import Permissions from "./pages/settings/Permissions";
 import CourseCatelog from "./pages/courseManagement/CourseCatelog";
 import { Toaster } from "./components/ui/toaster";
+import ProtectedRoute from "./utils/ProtectedRoute";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route path="" element={<Signin />} />
-      <Route path="/overview" element={<Overview />} />
-      <Route path="/trainingMetrics" element={<TrainingMetrics />} />
-      <Route path="/user" element={<User />} />
-      <Route path="/treinee" element={<Trainee />} />
-      <Route path="/treiner" element={<TrainerManagement />} />
-      <Route path="/blog" element={<Blogs />} />
-      <Route path="/class" element={<VideoClass />} />
-      <Route path="/upcomingSeasons" element={<UpcomingSeasons />} />
-      <Route path="/courseCatelog" element={<CourseCatelog />} />
-      <Route path="/helpDesk" element={<HelpDesk />} />
-      <Route path="/batchesManagement" element={<BatchManagement />} />
+      <Route
+        path="/overview"
+        element={
+          <ProtectedRoute>
+            <Overview />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/trainingMetrics"
+        element={
+          <ProtectedRoute>
+            <TrainingMetrics />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/user"
+        element={
+          <ProtectedRoute>
+            <User />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/treinee"
+        element={
+          <ProtectedRoute>
+            <Trainee />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/treiner"
+        element={
+          <ProtectedRoute>
+            <TrainerManagement />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/blog"
+        element={
+          <ProtectedRoute>
+            <Blogs />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/class"
+        element={
+          <ProtectedRoute>
+            <VideoClass />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/upcomingSeasons"
+        element={
+          <ProtectedRoute>
+            <UpcomingSeasons />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/courseCatelog"
+        element={
+          <ProtectedRoute>
+            <CourseCatelog />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/helpDesk"
+        element={
+          <ProtectedRoute>
+            <HelpDesk />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/batchesManagement"
+        element={
+          <ProtectedRoute>
+            <BatchManagement />
+          </ProtectedRoute>
+        }
+      />
       <Route
         path="/assignmentsAndAssesments"
-        element={<AssignmentsAndAssesments />}
+        element={
+          <ProtectedRoute>
+            <AssignmentsAndAssesments />
+          </ProtectedRoute>
+        }
       />
-      <Route path="/feedbackCollection" element={<FeedbackCollection />} />
-      <Route path="/batchPerformance" element={<BatchPerformance />} />
-      <Route path="/traineeProgress" element={<TraineeProgress />} />
+      <Route
+        path="/feedbackCollection"
+        element={
+          <ProtectedRoute>
+            <FeedbackCollection />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/batchPerformance"
+        element={
+          <ProtectedRoute>
+            <BatchPerformance />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/traineeProgress"
+        element={
+          <ProtectedRoute>
+            <TraineeProgress />
+          </ProtectedRoute>
+        }
+      />
       <Route
         path="/certificationTracking"
-        element={<CertificationTracking />}
+        element={
+          <ProtectedRoute>
+            <CertificationTracking />
+          </ProtectedRoute>
+        }
       />
-      <Route path="/revenueAnalytics" element={<RevenueAnalytics />} />
-      <Route path="/leadConversion" element={<LeadConversion />} />
-      <Route path="/placementAnalytics" element={<PlacementAnalytics />} />
-      <Route path="/profileSettings" element={<ProfileSetting />} />
-      <Route path="/emailSettings" element={<EmailSetting />} />
+      <Route
+        path="/revenueAnalytics"
+        element={
+          <ProtectedRoute>
+            <RevenueAnalytics />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/leadConversion"
+        element={
+          <ProtectedRoute>
+            <LeadConversion />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/placementAnalytics"
+        element={
+          <ProtectedRoute>
+            <PlacementAnalytics />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/profileSettings"
+        element={
+          <ProtectedRoute>
+            <ProfileSetting />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/emailSettings"
+        element={
+          <ProtectedRoute>
+            <EmailSetting />
+          </ProtectedRoute>
+        }
+      />
       <Route
         path="/paymentGatewaySettings"
-        element={<PaymentGatewaySettings />}
+        element={
+          <ProtectedRoute>
+            <PaymentGatewaySettings />
+          </ProtectedRoute>
+        }
       />
       <Route
         path="/brandingCustomisationSettings"
-        element={<BrandingSettings />}
+        element={
+          <ProtectedRoute>
+            <BrandingSettings />
+          </ProtectedRoute>
+        }
       />
-      <Route path="/permissions" element={<Permissions />} />
+      <Route
+        path="/permissions"
+        element={
+          <ProtectedRoute>
+            <Permissions />
+          </ProtectedRoute>
+        }
+      />
     </Route>
   )
 );

@@ -6,7 +6,6 @@ import { SignInRoute } from "@/utils/authHandler";
 import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
 
-
 function Signin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -16,7 +15,6 @@ function Signin() {
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
-
     e.preventDefault();
 
     setIsSubmitted(true);
@@ -27,13 +25,11 @@ function Signin() {
         if (data.message === "Login Successful") {
           navigate("/overview");
         }
-        localStorage.setItem('adminId', data.adminId);
-        console.log(data);
+        localStorage.setItem("adminId", data.adminId);
       }
     } catch (error) {
-      throw error
-    }
-    finally {
+      throw error;
+    } finally {
       setLoading(false);
     }
   };
@@ -48,8 +44,9 @@ function Signin() {
 
           <p className="text-gray text-[14px] mt-[20px]">Email</p>
           <div
-            className={`flex items-center h-[49px] border ${isEmailError ? "border-red-500" : "border-[#DADCE0]"
-              } bg-[#fafafa] px-[16px] py-[16px] rounded-[8px] focus-within:border-green-500`}
+            className={`flex items-center h-[49px] border ${
+              isEmailError ? "border-red-500" : "border-[#DADCE0]"
+            } bg-[#fafafa] px-[16px] py-[16px] rounded-[8px] focus-within:border-green-500`}
           >
             <MdOutlineMail />
             <input
@@ -73,8 +70,9 @@ function Signin() {
           </div>
           <p className="text-gray text-[14px] mt-[5px]">Password</p>
           <div
-            className={`flex items-center h-[49px] border ${isPasswordError ? "border-red-500" : "border-[#DADCE0]"
-              } bg-[#fafafa] px-[16px] py-[16px] rounded-[8px] focus-within:border-green-500`}
+            className={`flex items-center h-[49px] border ${
+              isPasswordError ? "border-red-500" : "border-[#DADCE0]"
+            } bg-[#fafafa] px-[16px] py-[16px] rounded-[8px] focus-within:border-green-500`}
           >
             <CiLock />
             <input
@@ -107,20 +105,22 @@ function Signin() {
               Forgot your Password?
             </p>
           </Link>
-          {
-            (loading) ?
-              <Button disabled className = "w-[100%] h-[50px] bg-pink text-[#fff] rounded-[8px] mt-[10px] font-[500]">
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                Logging In
-              </Button>
-              :
-              <button
-                type="submit"
-                className=" w-[100%] h-[50px] bg-pink text-[#fff] rounded-[8px] mt-[10px] font-[500]"
-              >
-                Log In
-              </button>
-          }
+          {loading ? (
+            <Button
+              disabled
+              className="w-[100%] h-[50px] bg-pink text-[#fff] rounded-[8px] mt-[10px] font-[500]"
+            >
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              Logging In
+            </Button>
+          ) : (
+            <button
+              type="submit"
+              className=" w-[100%] h-[50px] bg-pink text-[#fff] rounded-[8px] mt-[10px] font-[500]"
+            >
+              Log In
+            </button>
+          )}
         </form>
       </div>
     </div>
