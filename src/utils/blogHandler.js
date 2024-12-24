@@ -1,9 +1,10 @@
 import axios from "axios";
 import { endpoint } from "./endpoint";
 
-export async function createBlog (adminId, title, description, about, author, date, blogImage){
+export async function createBlog ( title, description, about, author, date, blogImage){
     try {
-        const createBlog = await axios.post(`${endpoint.blogEndpoint}/${adminId}/create`, {            
+        console.log(`${endpoint.blogEndpoint}/create`);
+        const createBlog = await axios.post(`${endpoint.blogEndpoint}/create`, {            
             title: title,
             description: description,
             about: about,
@@ -23,10 +24,10 @@ export async function createBlog (adminId, title, description, about, author, da
     }
 }
 
-export async function getBlogs (adminId){
+export async function getBlogs (){
     try {
-        const blogs = await axios.get (`${endpoint.blogEndpoint}/${adminId}/get`);
-        console.log ("url: ", `${endpoint.blogEndpoint}/${adminId}/get`);
+        const blogs = await axios.get (`${endpoint.blogEndpoint}/get`);
+        console.log ("url: ", `${endpoint.blogEndpoint}/get`);
         return blogs.data;
     } catch (error) {
         console.log("Getting blog error");        
@@ -34,9 +35,9 @@ export async function getBlogs (adminId){
     }
 }
 
-export async function editBlog (adminId, blogId, title, description, about, author, dateAndTime, blogImage){
+export async function editBlog ( blogId, title, description, about, author, dateAndTime, blogImage){
     try {
-        const editBlog = await axios.post (`${endpoint.blogEndpoint}/edit/${adminId}/${blogId}`, {
+        const editBlog = await axios.post (`${endpoint.blogEndpoint}/edit/${blogId}`, {
             title: title,
             description: description,
             about: about,
@@ -56,9 +57,9 @@ export async function editBlog (adminId, blogId, title, description, about, auth
     }
 }
 
-export async function deleteBlog (adminId, blogId){
+export async function deleteBlog (blogId){
     try {
-        const deleteBlog = await axios.post (`${endpoint.blogEndpoint}/delete/${adminId}/${blogId}`);
+        const deleteBlog = await axios.post (`${endpoint.blogEndpoint}/delete/${blogId}`);
         return deleteBlog.data;
     } catch (error) {
         console.log ("Blog Deletation error"+ error);

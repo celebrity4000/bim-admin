@@ -1,106 +1,106 @@
 import React, { useState } from "react";
 import Logo from "../assets/Logo.png";
 import { Link } from "react-router-dom";
-import { IoNotifications } from "react-icons/io5";
+// import { IoNotifications } from "react-icons/io5";
 
 function Navbar() {
-  // State for tracking notifications
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // // State for tracking notifications
+  // const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Dummy data for notifications
-  const [notifications, setNotifications] = useState([
-    {
-      id: 1,
-      message: "Payment due for the course",
-      type: "payment",
-      time: "2 days ago",
-      read: false,
-    },
-    {
-      id: 2,
-      message: "Session feedback pending",
-      type: "feedback",
-      time: "5 hours ago",
-      read: false,
-    },
-    {
-      id: 3,
-      message: "Upcoming assessment in 3 days",
-      type: "assessment",
-      time: "1 hour ago",
-      read: false,
-    },
-    {
-      id: 4,
-      message: "New course added",
-      type: "course",
-      time: "2 hours ago",
-      read: false,
-    },
-    {
-      id: 5,
-      message: "Payment due for the course",
-      type: "payment",
-      time: "2 days ago",
-      read: true,
-    },
-    {
-      id: 6,
-      message: "Session feedback pending",
-      type: "feedback",
-      time: "5 hours ago",
-      read: false,
-    },
-    {
-      id: 7,
-      message: "Upcoming assessment in 3 days",
-      type: "assessment",
-      time: "1 hour ago",
-      read: false,
-    },
-    {
-      id: 8,
-      message: "New course added",
-      type: "course",
-      time: "2 hours ago",
-      read: false,
-    },
-    {
-      id: 9,
-      message: "Payment due for the course",
-      type: "payment",
-      time: "2 days ago",
-      read: false,
-    },
-    {
-      id: 10,
-      message: "Session feedback pending",
-      type: "feedback",
-      time: "5 hours ago",
-      read: false,
-    },
-  ]);
+  // //Dummy data for notifications
+  // const [notifications, setNotifications] = useState([
+  //   {
+  //     id: 1,
+  //     message: "Payment due for the course",
+  //     type: "payment",
+  //     time: "2 days ago",
+  //     read: false,
+  //   },
+  //   {
+  //     id: 2,
+  //     message: "Session feedback pending",
+  //     type: "feedback",
+  //     time: "5 hours ago",
+  //     read: false,
+  //   },
+  //   {
+  //     id: 3,
+  //     message: "Upcoming assessment in 3 days",
+  //     type: "assessment",
+  //     time: "1 hour ago",
+  //     read: false,
+  //   },
+  //   {
+  //     id: 4,
+  //     message: "New course added",
+  //     type: "course",
+  //     time: "2 hours ago",
+  //     read: false,
+  //   },
+  //   {
+  //     id: 5,
+  //     message: "Payment due for the course",
+  //     type: "payment",
+  //     time: "2 days ago",
+  //     read: true,
+  //   },
+  //   {
+  //     id: 6,
+  //     message: "Session feedback pending",
+  //     type: "feedback",
+  //     time: "5 hours ago",
+  //     read: false,
+  //   },
+  //   {
+  //     id: 7,
+  //     message: "Upcoming assessment in 3 days",
+  //     type: "assessment",
+  //     time: "1 hour ago",
+  //     read: false,
+  //   },
+  //   {
+  //     id: 8,
+  //     message: "New course added",
+  //     type: "course",
+  //     time: "2 hours ago",
+  //     read: false,
+  //   },
+  //   {
+  //     id: 9,
+  //     message: "Payment due for the course",
+  //     type: "payment",
+  //     time: "2 days ago",
+  //     read: false,
+  //   },
+  //   {
+  //     id: 10,
+  //     message: "Session feedback pending",
+  //     type: "feedback",
+  //     time: "5 hours ago",
+  //     read: false,
+  //   },
+  // ]);
 
-  // Count unread notifications
-  const unreadCount = notifications.filter(
-    (notification) => !notification.read
-  ).length;
+  // //Count unread notifications
+  // const unreadCount = notifications.filter(
+  //   (notification) => !notification.read
+  // ).length;
 
-  // Function to toggle the modal
-  const toggleModal = () => {
-    setIsModalOpen(!isModalOpen);
-  };
+  // // Function to toggle the modal
+  // const toggleModal = () => {
+  //   setIsModalOpen(!isModalOpen);
+  // };
 
   const route = window.location.pathname;
 
   // Function to mark a notification as read
-  const markAsRead = (id) => {
-    setNotifications((prevNotifications) =>
-      prevNotifications.map((notification) =>
-        notification.id === id ? { ...notification, read: true } : notification
-      )
-    );
-  };
+  // const markAsRead = (id) => {
+  //   setNotifications((prevNotifications) =>
+  //     prevNotifications.map((notification) =>
+  //       notification.id === id ? { ...notification, read: true } : notification
+  //     )
+  //   );
+  // };
 
   return (
     <div className="h-[80px] bg-[#fff] flex items-center flex-row justify-between px-[32px] sticky top-0 z-50">
@@ -112,7 +112,7 @@ function Navbar() {
         />
       </Link>
 
-      {route != "/" && (
+      {/* {route != "/" && (
         <div className="relative px-1 hover:px-0">
           <div className="relative group" onClick={toggleModal}>
             <IoNotifications className="text-gray-600 text-[24px] cursor-pointer w-6 h-6 group-hover:text-black group-hover:w-7 group-hover:h-7" />
@@ -153,7 +153,7 @@ function Navbar() {
             </div>
           )}
         </div>
-      )}
+      )} */}
 
       {/* Uncomment this if you want a language selection dropdown */}
       {/* <select className="w-[57px] h-[32px]  border-[#EEE] border outline-none p-[4px] rounded-[4px] text-[14px] ">

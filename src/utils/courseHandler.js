@@ -1,9 +1,9 @@
 import axios from "axios";
 import { endpoint } from "./endpoint";
 
-export async function createCourse (adminId, title, price, description, offerPrice, content, instructorName, enrolledStudent, thumbnailImage){
+export async function createCourse (title, price, description, offerPrice, content, instructorName, enrolledStudent, thumbnailImage){
     try {
-        const createCourse = await axios.post (`${endpoint.courseEndpoint}/${adminId}/create`,{
+        const createCourse = await axios.post (`${endpoint.courseEndpoint}/create`,{
             title: title,
             description: description,
             price: price,
@@ -26,10 +26,10 @@ export async function createCourse (adminId, title, price, description, offerPri
 }
 
 
-export async function getCourse (adminId){
+export async function getCourse (){
     try {
-        const blogs = await axios.get (`${endpoint.courseEndpoint}/${adminId}/get`);
-        console.log ("url: ", `${endpoint.courseEndpoint}/${adminId}/get`);
+        const blogs = await axios.get (`${endpoint.courseEndpoint}/get`);
+        console.log ("url: ", `${endpoint.courseEndpoint}/get`);
         return blogs.data;
     } catch (error) {
         console.log("Getting blog error" + error);        
@@ -37,9 +37,9 @@ export async function getCourse (adminId){
     }
 }
 
-export async function editCourse (adminId, courseId, title, price, offerPrice, description, content, thumbnailImage, instructorName, enrolledStudent){
+export async function editCourse ( courseId, title, price, offerPrice, description, content, thumbnailImage, instructorName, enrolledStudent){
     try {
-        const editCourse = await axios.post (`${endpoint.courseEndpoint}/edit/${adminId}/${courseId}`,{
+        const editCourse = await axios.post (`${endpoint.courseEndpoint}/edit/${courseId}`,{
             title: title,
             price: price,
             offerPrice: offerPrice,
@@ -61,9 +61,9 @@ export async function editCourse (adminId, courseId, title, price, offerPrice, d
     }
 }
 
-export async function deleteCourse (adminId, courseId){
+export async function deleteCourse ( courseId){
     try {
-        const deleteCourse = await axios.post (`${endpoint.courseEndpoint}/delete/${adminId}/${courseId}`)
+        const deleteCourse = await axios.post (`${endpoint.courseEndpoint}/delete/${courseId}`)
         return deleteCourse.data;
     } catch (error) {
         console.log ("Delete Course Error" + error);

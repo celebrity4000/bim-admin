@@ -35,11 +35,6 @@ const sidebarData = [
         navigate: "/overview",
         icon: <MdDashboard size={25} />,
       },
-      // {
-      //   name: "Upcoming Seasons",
-      //   navigate: "/upcomingSeasons",
-      //   icon: <MdDashboard size={25} />,
-      // },
       {
         name: "Training Metrics",
         navigate: "/trainingMetrics",
@@ -54,127 +49,11 @@ const sidebarData = [
     isDropdown: false,
   },
   {
-    navigate: "/user",
-    name: "User Management",
-    icon: <FiUsers size={30} />,
-    isDropdown: true,
-    items: [
-      {
-        name: "Treinees",
-        navigate: "/treinee",
-        icon: <FiUsers size={25} />,
-      },
-      {
-        name: "Treiners",
-        navigate: "/treiner",
-        icon: <FiUsers size={25} />,
-      },
-      // {
-      //   name: "Roles and Permissions",
-      //   navigate: "/rolesandpermissions",
-      //   icon: <FiUsers size={25} />,
-      // },
-    ],
-  },
-  {
-    navigate: "/courseManagement",
+    navigate: "/courseCatelog",
     name: "Course Management",
     icon: <MdWifiCalling3 size={30} />,
-    isDropdown: true,
-    items: [
-      {
-        name: "Course Catalog",
-        navigate: "/courseCatelog",
-        icon: <GrCatalog size={25} />,
-      },
-      {
-        name: "Batch Management",
-        navigate: "/batchesManagement",
-        icon: <MdWifiCalling3 size={25} />,
-      },
-      {
-        name: "Assignment & Assessments",
-        navigate: "/assignmentsAndAssesments",
-        icon: <MdAssignmentAdd size={25} />,
-      },
-      {
-        name: "Feedback Collection",
-        navigate: "/feedbackCollection",
-        icon: <MdFeedback size={25} />,
-      },
-    ],
-  },
-  {
-    navigate: "/reports",
-    name: "Reports and Analytics",
-    icon: <TbReportAnalytics size={30} />,
-    isDropdown: true,
-    items: [
-      {
-        name: "Batch Performance",
-        navigate: "/batchPerformance",
-        icon: <GrDocumentPerformance size={25} />,
-      },
-      {
-        name: "Trainee Progress",
-        navigate: "/traineeProgress",
-        icon: <FaBarsProgress size={25} />,
-      },
-      {
-        name: "Certification Tracking",
-        navigate: "/certificationTracking",
-        icon: <GrCertificate size={25} />,
-      },
-      {
-        name: "Revenue Analytics",
-        navigate: "/revenueAnalytics",
-        icon: <FaMoneyCheckDollar size={25} />,
-      },
-      {
-        name: "Lead Conversion",
-        navigate: "/leadConversion",
-        icon: <TbReportAnalytics size={25} />,
-      },
-      {
-        name: "Placement Analytics",
-        navigate: "/placementAnalytics",
-        icon: <IoMdAnalytics size={25} />,
-      },
-    ],
-  },
-  {
-    navigate: "/settings",
-    name: "Settings and Customisation",
-    icon: <MdOutlineSettings size={30} />,
-    isDropdown: true,
-    items: [
-      {
-        name: "Profile Settings",
-        navigate: "/profileSettings",
-        icon: <MdOutlineSettings size={25} />,
-      },
-      // {
-      //   name: "Email Settings",
-      //   navigate: "/emailSettings",
-      //   icon: <MdOutlineMailOutline size={25} />,
-      // },
-      // {
-      //   name: "Payment Gateway Settings",
-      //   navigate: "/paymentGatewaySettings",
-      //   icon: <MdOutlinePayment size={25} />,
-      // },
-      // {
-      //   name: "Branding Customisation Settings",
-      //   navigate: "/brandingCustomisationSettings",
-      //   icon: <MdOutlineBrandingWatermark size={25} />,
-      // },
-      // {
-      //   name: "Permissions",
-      //   navigate: "/permissions",
-      //   icon: <MdOutlineSettings size={25} />,
-      // },
-    ],
-  },
+    isDropdown: false,
+  },  
   {
     navigate: "/helpDesk",
     name: "Help and Support",

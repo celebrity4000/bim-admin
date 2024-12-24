@@ -10,11 +10,12 @@ import { useState } from "react"
 import { FaPlus } from "react-icons/fa6"
 import { ScrollArea } from "../ui/scroll-area"
 import { createCourse } from "@/utils/courseHandler"
+import { DialogDescription } from "@radix-ui/react-dialog"
 
 
 const AddCourse = () => {
 
-    const [form, setForm] = useState({
+    const [formData, setFormData] = useState({
         id: null,
         title: "",
         description: "",
@@ -29,23 +30,23 @@ const AddCourse = () => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setForm({ ...form, [name]: value });
+        setFormData({ ...formData, [name]: value });
     };
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
         console.log(file)
         if (file) {
-            setForm({ ...form, image: file });
+            setFormData({ ...formData, image: file });
         }
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // console.log("price", form.price)
+        console.log("formData data", formData)
         try {
-            const adminId = localStorage.getItem ('adminId')
-            await createCourse (adminId, form.title, form.price, form.description, form.offerPrice, form.content, form.instructorName, form.enrolledStudent, form.image)
+            // const adminId = localStorage.getItem ('adminId')
+            await createCourse (formData.title, formData.price, formData.description, formData.offerPrice, formData.content, formData.instructorName, formData.enrolledStudent, formData.image)
         } catch (error) {
             console.log ('Course Creation error');
         }
@@ -67,9 +68,10 @@ const AddCourse = () => {
             </DialogTrigger>
             <DialogContent className="sm:max-w-[625px] bg-white !rounded-[10px]">
                 <DialogTitle className="font-medium">
+                    <DialogDescription className="font-[600] text-[20px] mb-5">General information</DialogDescription>
                     <div className=" bg-[#fff] rounded-[8px]">
-                        <h1 className="font-[600] text-[20px] mb-5">General information</h1>
                         <form onSubmit={handleSubmit} >
+                            {/* <h1 ></h1> */}
                             <ScrollArea className='h-[70vh]'>
                                 <div className=" flex flex-col gap-4">
                                     <div className=" flex flex-col gap-1">
@@ -78,7 +80,7 @@ const AddCourse = () => {
                                             type="text"
                                             name="title"
                                             placeholder="Title"
-                                            value={form.title}
+                                            value={formData.title}
                                             onChange={handleChange}
                                             required
                                             className="w-full px-3 py-2 border rounded-[8px] outline-none"
@@ -90,7 +92,7 @@ const AddCourse = () => {
                                             type="text"
                                             name="instructorName"
                                             placeholder="Instructor Name"
-                                            value={form.instructorName}
+                                            value={formData.instructorName}
                                             onChange={handleChange}
                                             required
                                             className="w-full px-3 py-2 border rounded-[8px] outline-none"
@@ -104,7 +106,7 @@ const AddCourse = () => {
                                             type="number"
                                             name="enrolledStudent"
                                             placeholder="Enrolled Student"
-                                            value={form.enrolledStudent}
+                                            value={formData.enrolledStudent}
                                             onChange={handleChange}
                                             required
                                             className="w-full px-3 py-2 border rounded-[8px] outline-none"
@@ -118,7 +120,7 @@ const AddCourse = () => {
                                                 type="number"
                                                 name="price"
                                                 placeholder="Price"
-                                                value={form.price}
+                                                value={formData.price}
                                                 onChange={handleChange}
                                                 required
                                                 className="w-full px-3 py-2 border rounded-[8px] outline-none"
@@ -131,7 +133,7 @@ const AddCourse = () => {
                                                 type="number"
                                                 name="offerPrice"
                                                 placeholder="Offer Price"
-                                                value={form.offerPrice}
+                                                value={formData.offerPrice}
                                                 onChange={handleChange}
                                                 required
                                                 className="w-full px-3 py-2 border rounded-[8px] outline-none"
@@ -143,7 +145,7 @@ const AddCourse = () => {
                                         <textarea
                                             name="description"
                                             placeholder="Description"
-                                            value={form.description}
+                                            value={formData.description}
                                             onChange={handleChange}
                                             required
                                             className="w-full h-[75px] px-3 py-2 border rounded-[8px] outline-none"
@@ -154,7 +156,7 @@ const AddCourse = () => {
                                         <textarea
                                             name="content"
                                             placeholder="Content"
-                                            value={form.content}
+                                            value={formData.content}
                                             onChange={handleChange}
                                             required
                                             className="w-full h-[75px] px-3 py-2 border rounded-[8px] outline-none"
@@ -178,9 +180,9 @@ const AddCourse = () => {
                                             className="w-full px-3 py-2 border rounded-[8px] outline-none"
                                         />
                                     </div>
-                                    {form.image && (
+                                    {formData.image && (
                                         <img
-                                            src={URL.createObjectURL(form.image)}
+                                            src={URL.createObjectURL(formData.image)}
                                             alt="Course"
                                             className="mt-2 aspect-video object-cover"
                                         />
@@ -188,8 +190,9 @@ const AddCourse = () => {
                                 </div>
                                 <DialogClose asChild>
                                     <button
-                                        type="submit"
+                                        type="button"
                                         className="bg-pink text-white py-4 rounded-[8px] mt-3 w-full"
+                                        onClick={() => document.querySelector('form').requestSubmit()} // Submit 
                                     >
                                         Add Course
                                     </button>
