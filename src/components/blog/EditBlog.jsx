@@ -38,10 +38,10 @@ const EditBlog = ({ title, description, authorName, date, about, imageUrl, blogI
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const adminId = localStorage.getItem('adminId');
+            // const adminId = localStorage.getItem('adminId');
             const dateAndTime = "2024-08-24T12:30:00Z";
             console.log(form);
-            await editBlog(adminId, blogId, form.title, form.description, form.about, form.authorName, dateAndTime, form.image)
+            await editBlog(blogId, form.title, form.description, form.about, form.authorName, dateAndTime, form.image)
             alert("Blog Edited");
         } catch (error) {
             console.log("Edit Blog error: ", error);

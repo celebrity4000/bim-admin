@@ -17,8 +17,8 @@ export function DeleteBlog({blogId}) {
 
     async function handleClick (){
         try {
-            const adminId = localStorage.getItem ('adminId'); 
-            await deleteBlog (adminId, blogId);
+            // const adminId = localStorage.getItem ('adminId'); 
+            await deleteBlog (blogId);
             console.log ("Blog Deleted")
         } catch (error) {
             console.log ("Delete blog error: ", error);

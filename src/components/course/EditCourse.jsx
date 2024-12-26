@@ -10,11 +10,12 @@ import { Edit } from "lucide-react"
 import { useState } from "react"
 import { ScrollArea } from "../ui/scroll-area"
 import { editCourse } from "@/utils/courseHandler"
+import { DialogDescription } from "@radix-ui/react-dialog"
 
 
-const EditCourse = ({ title, description, content, price, offerPrice, instructorName, enrolledStudent, courseId, imageUrl}) => {
+const EditCourse = ({ title, description, content, price, offerPrice, instructorName, enrolledStudent, courseId, imageUrl }) => {
 
-    const [form, setForm] = useState({
+    const [formData, setFormData] = useState({
         id: null,
         title: title,
         description: description,
@@ -29,23 +30,23 @@ const EditCourse = ({ title, description, content, price, offerPrice, instructor
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setForm({ ...form, [name]: value });
+        setFormData({ ...formData, [name]: value });
     };
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
         if (file) {
-            setForm({ ...form, image: file });
+            setFormData({ ...formData, image: file });
         }
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const adminId = localStorage.getItem ('adminId');
-            await editCourse (adminId, courseId, form.title, form.price, form.offerPrice, form.description, form.content, form.image, form.instructorName, form.enrolledStudent)
+            // const adminId = localStorage.getItem ('adminId');
+            await editCourse(courseId, formData.title, formData.price, formData.offerPrice, formData.description, formData.content, formData.image, formData.instructorName, formData.enrolledStudent)
         } catch (error) {
-            console.log ("course edit error: ", error);
+            console.log("course edit error: ", error);
         }
         alert("Course Edited");
     };
@@ -60,9 +61,9 @@ const EditCourse = ({ title, description, content, price, offerPrice, instructor
                 </Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[625px] bg-white !rounded-[10px]">
+                <DialogDescription className="font-[600] text-[20px] mb-5">General information</DialogDescription>
                 <DialogTitle className="font-medium">
                     <div className=" bg-[#fff] rounded-[8px]">
-                        <h1 className="font-[600] text-[20px] mb-5">General information</h1>
                         <form onSubmit={handleSubmit} >
                             <ScrollArea className='h-[70vh]'>
                                 <div className=" flex flex-col gap-4">
@@ -72,7 +73,8 @@ const EditCourse = ({ title, description, content, price, offerPrice, instructor
                                             type="text"
                                             name="title"
                                             placeholder="Title"
-                                            value={form.title}
+                                            value={formData.title}
+                                            // value = "hello mf"
                                             onChange={handleChange}
                                             required
                                             className="w-full px-3 py-2 border rounded-[8px] outline-none"
@@ -84,7 +86,7 @@ const EditCourse = ({ title, description, content, price, offerPrice, instructor
                                             type="text"
                                             name="instructorName"
                                             placeholder="Instructor Name"
-                                            value={form.instructorName}
+                                            value={formData.instructorName}
                                             onChange={handleChange}
                                             required
                                             className="w-full px-3 py-2 border rounded-[8px] outline-none"
@@ -92,18 +94,18 @@ const EditCourse = ({ title, description, content, price, offerPrice, instructor
                                     </div>
 
 
-                                    <div className=" flex flex-col gap-1">
+                                    {/* <div className=" flex flex-col gap-1">
                                         <label htmlFor="title">Enrolled Student</label>
                                         <input
                                             type="number"
                                             name="enrolledStudent"
                                             placeholder="Enrolled Student"
-                                            value={form.enrolledStudent}
+                                            value={formData.enrolledStudent}
                                             onChange={handleChange}
                                             required
                                             className="w-full px-3 py-2 border rounded-[8px] outline-none"
                                         />
-                                    </div>
+                                    </div> */}
                                     <div className="grid grid-rows-1 gap-1 grid-cols-2">
 
                                         <div className=" flex flex-col gap-1">
@@ -112,7 +114,7 @@ const EditCourse = ({ title, description, content, price, offerPrice, instructor
                                                 type="number"
                                                 name="price"
                                                 placeholder="Price"
-                                                value={form.price}
+                                                value={formData.price}
                                                 onChange={handleChange}
                                                 required
                                                 className="w-full px-3 py-2 border rounded-[8px] outline-none"
@@ -125,7 +127,7 @@ const EditCourse = ({ title, description, content, price, offerPrice, instructor
                                                 type="number"
                                                 name="offerPrice"
                                                 placeholder="Offer Price"
-                                                value={form.offerPrice}
+                                                value={formData.offerPrice}
                                                 onChange={handleChange}
                                                 required
                                                 className="w-full px-3 py-2 border rounded-[8px] outline-none"
@@ -137,7 +139,7 @@ const EditCourse = ({ title, description, content, price, offerPrice, instructor
                                         <textarea
                                             name="description"
                                             placeholder="Description"
-                                            value={form.description}
+                                            value={formData.description}
                                             onChange={handleChange}
                                             required
                                             className="w-full h-[75px] px-3 py-2 border rounded-[8px] outline-none"
@@ -148,13 +150,13 @@ const EditCourse = ({ title, description, content, price, offerPrice, instructor
                                         <textarea
                                             name="content"
                                             placeholder="Content"
-                                            value={form.content}
+                                            value={formData.content}
                                             onChange={handleChange}
                                             required
                                             className="w-full h-[75px] px-3 py-2 border rounded-[8px] outline-none"
                                         />
                                     </div>
-                                    <div className=" flex flex-col gap-1">
+                                    {/* <div className=" flex flex-col gap-1">
                                         <label htmlFor="title">Video</label>
                                         <input
                                             type="file"
@@ -162,7 +164,7 @@ const EditCourse = ({ title, description, content, price, offerPrice, instructor
                                             onChange={handleImageChange}
                                             className="w-full px-3 py-2 border rounded-[8px] outline-none"
                                         />
-                                    </div>
+                                    </div> */}
                                     <div className=" flex flex-col gap-1">
                                         <label htmlFor="title">Thumbnail Image</label>
                                         <input
@@ -173,20 +175,20 @@ const EditCourse = ({ title, description, content, price, offerPrice, instructor
                                         />
                                     </div>
                                     <img
-                                        src={(form.image) ? URL.createObjectURL(form.image) : imageUrl}
+                                        src={(formData.image) ? URL.createObjectURL(formData.image) : imageUrl}
                                         alt="Course"
                                         className="mt-2 aspect-video object-cover"
                                     />
                                 </div>
                                 <DialogClose asChild>
-                                    <button
-                                        type="submit"
-                                        className="bg-pink text-white py-4 rounded-[8px] mt-3 w-full"
-                                    >
-                                        Edit Course
-                                    </button>
                                 </DialogClose>
                             </ScrollArea>
+                            <button
+                                type="submit"
+                                className="bg-pink text-white py-4 rounded-[8px] mt-3 w-full"
+                            >
+                                Edit Course
+                            </button>
                         </form>
                     </div>
                 </DialogTitle>

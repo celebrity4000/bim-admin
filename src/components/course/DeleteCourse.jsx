@@ -17,7 +17,7 @@ export function DeleteCourse({courseId}) {
     async function handleClick (){
         try {
             const adminId = localStorage.getItem('adminId');
-            await deleteCourse (adminId, courseId);
+            await deleteCourse (courseId);
         } catch (error) {
             console.log("Course delete error: ", error);            
         }
